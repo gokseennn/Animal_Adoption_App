@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/route_manager.dart';
+import 'package:pet/general-ms/view/home/home_screen.dart';
 import 'package:pet/user-ms/view/signup/signup_screen.dart';
 
 class SigninScreen extends StatelessWidget {
@@ -59,6 +59,7 @@ class SigninScreen extends StatelessWidget {
                             child: Center(
                               child: TextFormField(
                                 decoration: const InputDecoration(
+                                    labelText: 'E-mail',
                                     prefixIcon: Icon(Icons.mail),
                                     border: InputBorder.none),
                               ),
@@ -77,6 +78,7 @@ class SigninScreen extends StatelessWidget {
                             child: Center(
                               child: TextFormField(
                                 decoration: const InputDecoration(
+                                    labelText: 'Password',
                                     suffixIcon: InkWell(
                                       child: Icon(Icons.visibility),
                                     ),
@@ -86,18 +88,21 @@ class SigninScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Container(
-                          width: double.infinity,
-                          height: 60,
-                          decoration: const BoxDecoration(
-                              color: Color.fromARGB(255, 213, 140, 229)),
-                          margin: const EdgeInsets.symmetric(horizontal: 18),
-                          child: const Center(
-                              child: Text(
-                            'Login',
-                            style: TextStyle(
-                                fontSize: 24, fontWeight: FontWeight.bold),
-                          )),
+                        GestureDetector(
+                          onTap: () => Get.toNamed(HomeScreen.routeName),
+                          child: Container(
+                            width: double.infinity,
+                            height: 60,
+                            decoration: const BoxDecoration(
+                                color: Color.fromARGB(255, 213, 140, 229)),
+                            margin: const EdgeInsets.symmetric(horizontal: 18),
+                            child: const Center(
+                                child: Text(
+                              'Login',
+                              style: TextStyle(
+                                  fontSize: 24, fontWeight: FontWeight.bold),
+                            )),
+                          ),
                         )
                       ],
                     ),

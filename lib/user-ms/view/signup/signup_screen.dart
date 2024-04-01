@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/route_manager.dart';
 
@@ -25,7 +23,7 @@ class SignUpScreen extends StatelessWidget {
         ),
         child: SafeArea(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Align(
                 alignment: Alignment.topLeft,
@@ -75,6 +73,7 @@ class SignUpScreen extends StatelessWidget {
                             child: Center(
                               child: TextFormField(
                                 decoration: const InputDecoration(
+                                    labelText: 'E-mail',
                                     prefixIcon: Icon(Icons.mail),
                                     border: InputBorder.none),
                               ),
@@ -93,6 +92,7 @@ class SignUpScreen extends StatelessWidget {
                             child: Center(
                               child: TextFormField(
                                 decoration: const InputDecoration(
+                                    labelText: 'Password',
                                     suffixIcon: InkWell(
                                       child: Icon(Icons.visibility),
                                     ),
@@ -115,6 +115,7 @@ class SignUpScreen extends StatelessWidget {
                             child: Center(
                               child: TextFormField(
                                 decoration: const InputDecoration(
+                                    labelText: 'Confirm Password',
                                     suffixIcon: InkWell(
                                       child: Icon(Icons.visibility),
                                     ),
