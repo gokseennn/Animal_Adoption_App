@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:pet/general-ms/controller/home_controller.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends GetView<HomeController> {
   const HomeScreen({super.key});
   static const routeName = '/home';
   @override
@@ -17,29 +18,68 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: 1,
-          onTap: (index) {},
-          type: BottomNavigationBarType.fixed,
-          fixedColor: Colors.white,
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/navhome.svg'),
-              label: 'Anasayfa',
+        bottomNavigationBar: Container(
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.15),
+                spreadRadius: 5,
+                blurRadius: 7,
+                offset: const Offset(
+                    0, -3), // Gölgenin yönünü ve büyüklüğünü belirler
+              ),
+            ],
+          ),
+          child: Obx(
+            () => BottomNavigationBar(
+              currentIndex: controller.currentIndex.value,
+              onTap: controller.changeIndex,
+              type: BottomNavigationBarType.fixed,
+              fixedColor: Colors.white,
+              items: <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: SvgPicture.asset(
+                    'assets/navhome.svg',
+                    colorFilter: controller.currentIndex.value == 0
+                        ? const ColorFilter.mode(
+                            Color(0xFFBA68C8), BlendMode.srcIn)
+                        : null,
+                  ),
+                  label: '',
+                ),
+                BottomNavigationBarItem(
+                  icon: SvgPicture.asset(
+                    'assets/navpet.svg',
+                    colorFilter: controller.currentIndex.value == 1
+                        ? const ColorFilter.mode(
+                            Color(0xFFBA68C8), BlendMode.srcIn)
+                        : null,
+                  ),
+                  label: '',
+                ),
+                BottomNavigationBarItem(
+                  icon: SvgPicture.asset(
+                    'assets/navheart.svg',
+                    colorFilter: controller.currentIndex.value == 2
+                        ? const ColorFilter.mode(
+                            Color(0xFFBA68C8), BlendMode.srcIn)
+                        : null,
+                  ),
+                  label: '',
+                ),
+                BottomNavigationBarItem(
+                  icon: SvgPicture.asset(
+                    'assets/navprofile.svg',
+                    colorFilter: controller.currentIndex.value == 3
+                        ? const ColorFilter.mode(
+                            Color(0xFFBA68C8), BlendMode.srcIn)
+                        : null,
+                  ),
+                  label: '',
+                ),
+              ],
             ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/navpet.svg'),
-              label: 'Son Haberler',
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/navheart.svg'),
-              label: 'Kategoriler',
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/navprofile.svg'),
-              label: 'İletişim',
-            ),
-          ],
+          ),
         ),
         drawer: Drawer(
           child: Padding(
@@ -188,7 +228,25 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-              )
+              ),
+              Container(
+                height: 150,
+                width: double.infinity,
+                margin: const EdgeInsets.symmetric(vertical: 24),
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.15),
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: const Offset(
+                          0, -3), // Gölgenin yönünü ve büyüklüğünü belirler
+                    ),
+                  ],
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
             ],
           ),
         ));
