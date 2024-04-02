@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:pet/common/common_screen.dart';
+import 'package:pet/general-ms/controller/favorite_controller.dart';
+import 'package:pet/general-ms/view/my_adaption/components/my_adaption_card.dart';
 
-class FavoriteScreen extends StatelessWidget {
+class FavoriteScreen extends GetView<FavoriteController> {
   const FavoriteScreen({super.key});
   static const String routeName = '/favorites';
   @override
@@ -28,6 +31,25 @@ class FavoriteScreen extends StatelessWidget {
                 SvgPicture.asset('assets/favoritedog.svg'),
               ],
             ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 18.0),
+                child: GridView.builder(
+                    shrinkWrap: true,
+                    itemCount: controller.adList.length,
+                    gridDelegate:
+                        const SliverGridDelegateWithMaxCrossAxisExtent(
+                            mainAxisExtent: 200,
+                            mainAxisSpacing: 16,
+                            crossAxisSpacing: 16,
+                            maxCrossAxisExtent: 200),
+                    itemBuilder: (context, index) {
+                      return MyyAdaptionCard(
+                        ad: controller.adList[index],
+                      );
+                    }),
+              ),
+            )
           ],
         ),
       ),

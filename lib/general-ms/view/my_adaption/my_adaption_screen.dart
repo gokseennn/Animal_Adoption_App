@@ -33,7 +33,7 @@ class MyAdaption extends GetView<MyAdaptionController> {
                     crossAxisSpacing: 16,
                     maxCrossAxisExtent: 200),
                 itemBuilder: (context, index) {
-                  return MyyADaptionCard(
+                  return MyyAdaptionCard(
                     ad: controller.adList[index],
                   );
                 }),

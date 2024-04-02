@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      defaultTransition: Transition.noTransition,
       getPages: UserRoutes.routes + GeneralRoutes.routes,
       home: const SplashScreen(),
     );
