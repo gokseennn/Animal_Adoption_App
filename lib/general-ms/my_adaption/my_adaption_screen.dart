@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet/common/common_screen.dart';
-import 'package:pet/general-ms/view/my_adaption/controller/my_adaption_controller.dart';
-import 'package:pet/general-ms/view/my_adaption/components/my_adaption_card.dart';
+import 'package:pet/general-ms/my_adaption/controller/my_adaption_controller.dart';
+import 'package:pet/general-ms/my_adaption/components/my_adaption_card.dart';
 
 class MyAdaption extends GetView<MyAdaptionController> {
   const MyAdaption({super.key});

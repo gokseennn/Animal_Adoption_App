@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
 import 'package:pet/general-ms/model/ad_model.dart';
-import 'package:pet/general-ms/view/favorites/favorites_screen.dart';
-import 'package:pet/general-ms/view/home/home_screen.dart';
-import 'package:pet/general-ms/view/my_adaption/my_adaption_screen.dart';
+import 'package:pet/general-ms/favorites/favorites_screen.dart';
+import 'package:pet/general-ms/home/home_screen.dart';
+import 'package:pet/general-ms/my_adaption/my_adaption_screen.dart';
 import 'package:pet/user-ms/profile/view/profile_screen.dart';
 
 class HomeController extends GetxController {

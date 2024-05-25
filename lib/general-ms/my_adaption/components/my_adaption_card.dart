@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:pet/general-ms/model/ad_model.dart';
-import 'package:pet/general-ms/view/ad_detail/ad_detail_screen.dart';
+import 'package:pet/general-ms/ad_detail/ad_detail_screen.dart';
 
 class MyyAdaptionCard extends StatelessWidget {
   const MyyAdaptionCard({super.key, required this.ad});
