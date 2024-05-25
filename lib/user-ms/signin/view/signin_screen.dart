@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/route_manager.dart';
-import 'package:pet/general-ms/view/home/home_screen.dart';
-import 'package:pet/user-ms/view/signup/signup_screen.dart';
+import 'package:get/get.dart';
+import 'package:pet/user-ms/signin/controller/signin_controller.dart';
+import 'package:pet/user-ms/signup/signup_screen.dart';
 
-class SigninScreen extends StatelessWidget {
+class SigninScreen extends GetView<SignInController> {
   const SigninScreen({super.key});
   static const routeName = '/signin';
   @override
@@ -58,6 +58,7 @@ class SigninScreen extends StatelessWidget {
                             padding: const EdgeInsets.only(left: 8.0),
                             child: Center(
                               child: TextFormField(
+                                controller: controller.emailController,
                                 decoration: const InputDecoration(
                                     labelText: 'E-mail',
                                     prefixIcon: Icon(Icons.mail),
@@ -77,6 +78,7 @@ class SigninScreen extends StatelessWidget {
                             padding: const EdgeInsets.only(left: 8.0),
                             child: Center(
                               child: TextFormField(
+                                controller: controller.passwordController,
                                 decoration: const InputDecoration(
                                     labelText: 'Password',
                                     suffixIcon: InkWell(
@@ -89,7 +91,7 @@ class SigninScreen extends StatelessWidget {
                           ),
                         ),
                         GestureDetector(
-                          onTap: () => Get.toNamed(HomeScreen.routeName),
+                          onTap: controller.login,
                           child: Container(
                             width: double.infinity,
                             height: 60,
