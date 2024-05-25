@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:pet/common/common_screen.dart';
-import 'package:pet/general-ms/controller/favorite_controller.dart';
+import 'package:pet/general-ms/view/favorites/controller/favorite_controller.dart';
 import 'package:pet/general-ms/view/my_adaption/components/my_adaption_card.dart';
 
 class FavoriteScreen extends GetView<FavoriteController> {

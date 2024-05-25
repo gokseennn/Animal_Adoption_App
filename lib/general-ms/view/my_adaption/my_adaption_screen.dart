@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet/common/common_screen.dart';
-import 'package:pet/general-ms/controller/my_adaption_controller.dart';
+import 'package:pet/general-ms/view/my_adaption/controller/my_adaption_controller.dart';
 import 'package:pet/general-ms/view/my_adaption/components/my_adaption_card.dart';
 
 class MyAdaption extends GetView<MyAdaptionController> {
@@ -16,11 +15,17 @@ class MyAdaption extends GetView<MyAdaptionController> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Padding(
-            padding: EdgeInsets.only(bottom: 16.0),
-            child: Text(
-              'My Adaption Ad',
-              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  'My Adaption Ad',
+                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+                ),
+                IconButton(onPressed: () {}, icon: const Icon(Icons.add))
+              ],
             ),
           ),
           Expanded(

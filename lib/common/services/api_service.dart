@@ -18,7 +18,6 @@ class ApiService extends GetxService {
     );
     try {
       if (response.statusCode == 200) {
-        print("200");
         if (loader) Get.back();
         return jsonDecode(response.body);
       } else {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:pet/common/common_screen.dart';
-import 'package:pet/general-ms/controller/home_controller.dart';
+import 'package:pet/general-ms/view/home/controller/home_controller.dart';
 import 'package:pet/general-ms/view/home/components/ad_cart.dart';
 
 class HomeScreen extends GetView<HomeController> {

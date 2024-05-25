@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:pet/general-ms/controller/home_controller.dart';
+import 'package:pet/general-ms/view/home/controller/home_controller.dart';
 
 class CommonScreen extends GetView<HomeController> {
   const CommonScreen({super.key, required this.body});
