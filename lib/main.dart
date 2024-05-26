@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pet/common/services/api_service.dart';
+import 'package:pet/common/services/api_service/api_service.dart';
 import 'package:pet/general-ms/general_routes.dart';
 import 'package:pet/general-ms/splash/splash_screen.dart';
 import 'package:pet/user-ms/signin/controller/signin_bindings.dart';

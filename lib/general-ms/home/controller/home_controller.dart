@@ -1,19 +1,16 @@
 import 'package:get/get.dart';
+import 'package:pet/common/util.dart';
 import 'package:pet/general-ms/add_adaption/model/ad_model.dart';
 import 'package:pet/general-ms/favorites/favorites_screen.dart';
+import 'package:pet/general-ms/home/controller/home_repository.dart';
 import 'package:pet/general-ms/home/home_screen.dart';
 import 'package:pet/general-ms/my_adaption/my_adaption_screen.dart';
 import 'package:pet/user-ms/profile/view/profile_screen.dart';
 
-class HomeController extends GetxController {
+class HomeController extends GetxController with StateMixin {
+  final _repository = Get.find<HomeRepository>();
   final currentIndex = 0.obs;
-  late final List<Ad> adList = [
-    Ad(name: 'Ad 1', location: 'Location 1'),
-    Ad(name: 'Ad 2', location: 'Location 2'),
-    Ad(name: 'Ad 3', location: 'Location 3'),
-    Ad(name: 'Ad 4', location: 'Location 4'),
-    Ad(name: 'Ad 5', location: 'Location 5'),
-  ];
+  RxList<Ad> adList = RxList<Ad>();
 
   void changeIndex(int index) {
     currentIndex.value = index;
@@ -26,5 +23,18 @@ class HomeController extends GetxController {
     } else if (currentIndex.value == 3) {
       Get.toNamed(ProfileScreen.routeName);
     }
+  }
+
+  @override
+  void onInit() async {
+    commonAppend(() => initController);
+
+    super.onInit();
+  }
+
+  Future<bool> initController() async {
+    var list = await _repository.getAdList();
+    adList.value = list.map<Ad>((e) => Ad.fromJson(e)).toList();
+    return true;
   }
 }

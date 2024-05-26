@@ -40,29 +40,32 @@ class AddAdaptionScreen extends GetView<AddAdaptionController> {
               width: double.infinity,
               color: Colors.black,
             ),
-            item("İsim", "Kartopu"),
-            item("Cins", "Terter"),
-            item("Yaş", "3"),
-            item("Kilo", "12 Kg"),
-            item("Doğum Tarihi", "10-07-2002"),
-            item("Hakkında", "test tsetssdf"),
+            item("İsim", controller.nameController),
+            item("Cins", controller.breedController),
+            item("Yaş", controller.ageController),
+            item("Kilo", controller.weightController),
+            item("Doğum Tarihi", controller.birthDateController),
+            item("Hakkında", controller.aboutController),
             const Spacer(),
             Center(
-              child: Ink(
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(12)),
-                  gradient: LinearGradient(
-                    colors: [Colors.pink, Color.fromARGB(255, 217, 199, 218)],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
+              child: InkWell(
+                onTap: () => controller.publishAddAdaption(),
+                child: Ink(
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(12)),
+                    gradient: LinearGradient(
+                      colors: [Colors.pink, Color.fromARGB(255, 217, 199, 218)],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    ),
                   ),
-                ),
-                child: Container(
-                  alignment: Alignment.center,
-                  constraints: const BoxConstraints(
-                      maxWidth: double.infinity, minHeight: 50),
-                  child: const Text('İlanı Yayınla',
-                      style: TextStyle(color: Colors.black)),
+                  child: Container(
+                    alignment: Alignment.center,
+                    constraints: const BoxConstraints(
+                        maxWidth: double.infinity, minHeight: 50),
+                    child: const Text('İlanı Yayınla',
+                        style: TextStyle(color: Colors.black)),
+                  ),
                 ),
               ),
             )
@@ -72,7 +75,7 @@ class AddAdaptionScreen extends GetView<AddAdaptionController> {
     );
   }
 
-  Padding item(String title, String value) {
+  Padding item(String title, TextEditingController controller) {
     return Padding(
       padding: const EdgeInsets.only(top: 18.0),
       child: SizedBox(
@@ -91,14 +94,14 @@ class AddAdaptionScreen extends GetView<AddAdaptionController> {
             ),
             const Spacer(),
             SizedBox(
-                width: Get.width * 0.6,
-                child: TextFormField(
-                  decoration: const InputDecoration(
-                    contentPadding: EdgeInsets.only(
-                        top: 0,
-                        bottom: 0), // alt çizginin üst padding'ini azaltır
-                  ),
-                )),
+              width: Get.width * 0.6,
+              child: TextFormField(
+                controller: controller,
+                decoration: const InputDecoration(
+                  contentPadding: EdgeInsets.only(top: 0, bottom: 0),
+                ),
+              ),
+            ),
             const Spacer()
           ],
         ),

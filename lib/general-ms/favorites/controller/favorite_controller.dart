@@ -6,32 +6,22 @@ class FavoriteController extends GetxController {
     Ad(
       name: 'Garry',
       location: '3 Years',
-      age: 3,
-      tur: 'Yorkshire Terrier',
     ),
     Ad(
       name: 'Garry',
       location: '3 Years',
-      age: 3,
-      tur: 'Yorkshire Terrier',
     ),
     Ad(
       name: 'Garry',
       location: '3 Years',
-      age: 3,
-      tur: 'Yorkshire Terrier',
     ),
     Ad(
       name: 'Garry',
       location: '3 Years',
-      age: 3,
-      tur: 'Yorkshire Terrier',
     ),
     Ad(
       name: 'Garry',
       location: '3 Years',
-      age: 3,
-      tur: 'Yorkshire Terrier',
     ),
   ];
 }
