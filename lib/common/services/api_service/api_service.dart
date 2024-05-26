@@ -60,7 +60,13 @@ class ApiService extends GetxService {
     String url,
   ) async {
     try {
-      http.Response response = await http.get(Uri.parse('$baseUrl/$url'));
+      String? cookie = await getCookie();
+      http.Response response = await http.get(
+        Uri.parse('$baseUrl/$url'),
+        headers: {
+          'cookie': cookie ?? "",
+        },
+      );
 
       if (response.statusCode == 200) {
         return jsonDecode(response.body);

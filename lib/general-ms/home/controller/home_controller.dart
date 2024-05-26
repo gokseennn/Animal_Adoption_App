@@ -28,7 +28,6 @@ class HomeController extends GetxController with StateMixin {
   @override
   void onInit() async {
     commonAppend(() => initController);
-
     super.onInit();
   }
 

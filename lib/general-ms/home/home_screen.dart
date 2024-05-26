@@ -61,8 +61,7 @@ class HomeScreen extends GetView<HomeController> {
                     shrinkWrap: true,
                     itemBuilder: (context, index) {
                       return AdCart(
-                        name: controller.adList[index].name,
-                        location: controller.adList[index].location,
+                        ad: controller.adList[index],
                       );
                     },
                     itemCount: controller.adList.length),

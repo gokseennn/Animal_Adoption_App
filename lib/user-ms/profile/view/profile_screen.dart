@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:pet/common/common_screen.dart';
+import 'package:pet/user-ms/profile/controller/profile_controller.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends GetView<ProfileController> {
   const ProfileScreen({super.key});
   static const String routeName = '/profile';
   @override
@@ -12,13 +14,13 @@ class ProfileScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          profileInfo("UserName", "Gokseenn"),
-          profileInfo("Email", "ahmet.goksen81@icloud.com"),
-          profileInfo("Phone", "0532 123 45 67"),
-          profileInfo("Bio",
-              "I am a software developer.I am a software developer.I am a software developer.I am a software developer.I am a software developer."),
-          profileInfo("Location", "Istanbul"),
-          profileInfo("Birth Date", "10-03-2002"),
+          profileInfo("UserName", controller.user.username),
+          profileInfo("Email", controller.user.profile.email),
+          profileInfo("Phone", controller.user.profile.contact),
+          profileInfo("Bio", controller.user.profile.bio),
+          profileInfo("Location", controller.user.profile.location),
+          profileInfo("Birth Date",
+              controller.user.profile.userBirthDate.split("T").first),
         ],
       ),
     ));
