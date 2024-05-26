@@ -1,5 +1,5 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
-import 'package:pet/general-ms/view/splash_screen.dart';
+import 'package:pet/general-ms/splash/splash_screen.dart';
 import 'package:pet/user-ms/profile/view/profile_screen.dart';
 import 'package:pet/user-ms/signin/controller/signin_bindings.dart';
 import 'package:pet/user-ms/signin/view/signin_screen.dart';

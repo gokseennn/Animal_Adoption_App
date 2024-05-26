@@ -1,4 +1,6 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
+import 'package:pet/general-ms/add_adaption/controller/add_adaption_binding.dart';
+import 'package:pet/general-ms/add_adaption/view/add_adaption_screen.dart';
 import 'package:pet/general-ms/favorites/controller/favoiret_binding.dart';
 import 'package:pet/general-ms/home/controller/home_binding.dart';
 import 'package:pet/general-ms/my_adaption/controller/my_adaption_binding.dart';
@@ -27,5 +29,9 @@ class GeneralRoutes {
       name: AdDetail.routeName,
       page: () => const AdDetail(),
     ),
+    GetPage(
+        name: AddAdaptionScreen.routeName,
+        page: () => const AddAdaptionScreen(),
+        binding: AddAdaptionBinding())
   ];
 }

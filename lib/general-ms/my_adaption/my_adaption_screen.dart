@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet/common/common_screen.dart';
+import 'package:pet/general-ms/add_adaption/view/add_adaption_screen.dart';
 import 'package:pet/general-ms/my_adaption/controller/my_adaption_controller.dart';
 import 'package:pet/general-ms/my_adaption/components/my_adaption_card.dart';
 
@@ -24,7 +25,9 @@ class MyAdaption extends GetView<MyAdaptionController> {
                   'My Adaption Ad',
                   style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
                 ),
-                IconButton(onPressed: () {}, icon: const Icon(Icons.add))
+                IconButton(
+                    onPressed: () => Get.toNamed(AddAdaptionScreen.routeName),
+                    icon: const Icon(Icons.add))
               ],
             ),
           ),

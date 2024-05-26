@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:pet/general-ms/model/ad_model.dart';
+import 'package:pet/general-ms/add_adaption/model/ad_model.dart';
 
 class FavoriteController extends GetxController {
   final List<Ad> adList = [
