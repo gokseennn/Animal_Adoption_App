@@ -8,6 +8,7 @@ class AdDetail extends StatelessWidget {
   static const String routeName = '/ad_detail';
   @override
   Widget build(BuildContext context) {
+    print(Get.previousRoute);
     final AdDetailController controller =
         Get.find<AdDetailController>(tag: Get.currentRoute);
     return controller.obx(
@@ -18,7 +19,7 @@ class AdDetail extends StatelessWidget {
               alignment: Alignment.center,
               child: Container(
                 margin: const EdgeInsets.all(24),
-                height: Get.height * 0.3,
+                height: Get.height * 0.28,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: Colors.black,
@@ -30,7 +31,7 @@ class AdDetail extends StatelessWidget {
               ),
             ),
             Container(
-              margin: const EdgeInsets.all(24),
+              margin: const EdgeInsets.symmetric(horizontal: 24),
               padding: const EdgeInsets.all(12),
               width: double.infinity,
               decoration: BoxDecoration(
@@ -41,12 +42,25 @@ class AdDetail extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    controller.ad.name,
-                    style: const TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        controller.ad.name,
+                        style: const TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      IconButton(
+                          onPressed: () {
+                            controller.addFavorite();
+                          },
+                          icon: const Icon(
+                            Icons.favorite_border,
+                          ),
+                          color: Colors.red)
+                    ],
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 12.0),
@@ -82,7 +96,17 @@ class AdDetail extends StatelessWidget {
                   ),
                 ],
               ),
-            )
+            ),
+            Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+                margin: const EdgeInsets.only(top: 12),
+                decoration: BoxDecoration(
+                  color: Colors.purple,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: const Text("İlani Sil",
+                    style: TextStyle(color: Colors.white, fontSize: 18))),
           ],
         ),
       ),

@@ -40,10 +40,21 @@ class AdCart extends StatelessWidget {
                 width: 100,
                 height: 100,
                 decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(20),
-                    ),
-                    color: Colors.black),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(20),
+                  ),
+                ),
+                child: Builder(
+                  builder: (BuildContext context) {
+                    try {
+                      return Image.memory(base64Decode(ad.imgPath));
+                    } catch (e) {
+                      // Handle the exception e
+                      // You can return a placeholder widget in case of an error
+                      return const Text('Error loading image');
+                    }
+                  },
+                ),
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,

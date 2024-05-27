@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
@@ -10,10 +12,11 @@ class MyyAdaptionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Get.toNamed(AdDetail.routeName),
+      onTap: () => Get.toNamed(AdDetail.routeName,
+          parameters: {'ad': jsonEncode(ad.toJson())}),
       child: Container(
         height: 220,
-        width: 200, //silinecek
+        width: 200,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(12),
@@ -30,12 +33,33 @@ class MyyAdaptionCard extends StatelessWidget {
           children: [
             Container(
               height: 130,
+              width: double.infinity,
               decoration: BoxDecoration(
-                color: Colors.black,
                 borderRadius: BorderRadius.circular(12),
-                border: Border.all(
-                  color: Colors.black,
-                ),
+              ),
+              child: Builder(
+                builder: (BuildContext context) {
+                  try {
+                    return Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: Image.memory(
+                          base64Decode(ad.imgPath),
+                          width: double.infinity,
+                          height: 130,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    );
+                  } catch (e) {
+                    // Handle the exception e
+                    // You can return a placeholder widget in case of an error
+                    return const Text('Error loading image');
+                  }
+                },
               ),
             ),
             Padding(

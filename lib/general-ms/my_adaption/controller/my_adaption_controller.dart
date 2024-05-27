@@ -15,6 +15,9 @@ class MyAdaptionController extends GetxController with StateMixin {
   Future initController() async {
     var list = await _repository.getAdaption();
     adList = List<Ad>.from(list.map((e) => Ad.fromJson(e)));
+    for (var element in adList) {
+      print(element.adID);
+    }
     return true;
   }
 }

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:pet/general-ms/favorites/favorites_screen.dart';
 import 'package:pet/general-ms/home/controller/home_controller.dart';
+import 'package:pet/user-ms/profile/view/profile_screen.dart';
 
 class CommonScreen extends GetView<HomeController> {
   const CommonScreen({super.key, required this.body});
@@ -150,7 +152,9 @@ class CommonScreen extends GetView<HomeController> {
                       ListTile(
                         leading: SvgPicture.asset('assets/info.svg'),
                         title: const Text('Account Information'),
-                        onTap: () {},
+                        onTap: () {
+                          Get.toNamed(ProfileScreen.routeName);
+                        },
                       ),
                       ListTile(
                         leading: SvgPicture.asset('assets/password.svg'),
@@ -160,7 +164,9 @@ class CommonScreen extends GetView<HomeController> {
                       ListTile(
                         leading: SvgPicture.asset('assets/whislist.svg'),
                         title: const Text('Wishlist'),
-                        onTap: () {},
+                        onTap: () {
+                          Get.toNamed(FavoriteScreen.routeName);
+                        },
                       ),
                       ListTile(
                         leading: SvgPicture.asset('assets/settings.svg'),

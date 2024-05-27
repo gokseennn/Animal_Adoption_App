@@ -38,6 +38,8 @@ dependencies:
   flutter_svg: ^2.0.10+1
   http: ^1.2.1
   shared_preferences: ^2.2.3
+  image_picker: ^1.1.1
+  image: ^4.2.0
 
 dev_dependencies:
   flutter_test:
