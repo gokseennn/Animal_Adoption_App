@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:pet/common/common_screen.dart';
 import 'package:pet/general-ms/favorites/controller/favorite_controller.dart';
-import 'package:pet/general-ms/my_adaption/components/my_adaption_card.dart';
+import 'package:pet/general-ms/my_adaption/view/components/my_adaption_card.dart';
 
 class FavoriteScreen extends GetView<FavoriteController> {
   const FavoriteScreen({super.key});

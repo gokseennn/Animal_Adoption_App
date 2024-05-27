@@ -8,7 +8,7 @@ import 'package:pet/general-ms/my_adaption/controller/my_adaption_binding.dart';
 import 'package:pet/general-ms/ad_detail/view/ad_detail_screen.dart';
 import 'package:pet/general-ms/favorites/favorites_screen.dart';
 import 'package:pet/general-ms/home/home_screen.dart';
-import 'package:pet/general-ms/my_adaption/my_adaption_screen.dart';
+import 'package:pet/general-ms/my_adaption/view/my_adaption_screen.dart';
 
 class GeneralRoutes {
   static final routes = [

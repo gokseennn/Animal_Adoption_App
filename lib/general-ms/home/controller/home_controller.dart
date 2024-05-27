@@ -4,7 +4,7 @@ import 'package:pet/general-ms/add_adaption/model/ad_model.dart';
 import 'package:pet/general-ms/favorites/favorites_screen.dart';
 import 'package:pet/general-ms/home/controller/home_repository.dart';
 import 'package:pet/general-ms/home/home_screen.dart';
-import 'package:pet/general-ms/my_adaption/my_adaption_screen.dart';
+import 'package:pet/general-ms/my_adaption/view/my_adaption_screen.dart';
 import 'package:pet/user-ms/profile/view/profile_screen.dart';
 
 class HomeController extends GetxController with StateMixin {
