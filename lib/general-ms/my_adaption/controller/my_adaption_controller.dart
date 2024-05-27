@@ -5,7 +5,7 @@ import 'package:pet/general-ms/my_adaption/controller/my_adaption_repository.dar
 
 class MyAdaptionController extends GetxController with StateMixin {
   final _repository = MyAdaptionRepository();
-  late final List<Ad> adList;
+  List<Ad> adList = [];
   @override
   void onInit() {
     commonAppend(() => initController);
@@ -13,11 +13,10 @@ class MyAdaptionController extends GetxController with StateMixin {
   }
 
   Future initController() async {
+    update();
     var list = await _repository.getAdaption();
     adList = List<Ad>.from(list.map((e) => Ad.fromJson(e)));
-    for (var element in adList) {
-      print(element.adID);
-    }
+    update();
     return true;
   }
 }

@@ -47,7 +47,14 @@ class AdCart extends StatelessWidget {
                 child: Builder(
                   builder: (BuildContext context) {
                     try {
-                      return Image.memory(base64Decode(ad.imgPath));
+                      return ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: Image.memory(
+                          base64Decode(ad.imgPath),
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                        ),
+                      );
                     } catch (e) {
                       // Handle the exception e
                       // You can return a placeholder widget in case of an error

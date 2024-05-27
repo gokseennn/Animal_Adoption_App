@@ -77,4 +77,25 @@ class ApiService extends GetxService {
       return null;
     }
   }
+
+  Future<dynamic> deleteData(String url, dynamic body) async {
+    try {
+      String? cookie = await getCookie();
+      http.Response response = await http.delete(
+        Uri.parse('$baseUrl/$url'),
+        body: body,
+        headers: {
+          'cookie': cookie ?? "",
+        },
+      );
+
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      } else {
+        return null;
+      }
+    } catch (e) {
+      return null;
+    }
+  }
 }
