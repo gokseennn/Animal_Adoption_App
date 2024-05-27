@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:pet/user-ms/signin/controller/signin_controller.dart';
-import 'package:pet/user-ms/signup/signup_screen.dart';
+import 'package:pet/user-ms/signup/view/signup_screen.dart';
 
 class SigninScreen extends GetView<SignInController> {
   const SigninScreen({super.key});

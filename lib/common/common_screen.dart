@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:pet/general-ms/favorites/favorites_screen.dart';
 import 'package:pet/general-ms/home/controller/home_controller.dart';
 import 'package:pet/user-ms/profile/view/profile_screen.dart';
+import 'package:pet/user-ms/signin/view/signin_screen.dart';
 
 class CommonScreen extends GetView<HomeController> {
   const CommonScreen({super.key, required this.body});
@@ -168,11 +169,6 @@ class CommonScreen extends GetView<HomeController> {
                           Get.toNamed(FavoriteScreen.routeName);
                         },
                       ),
-                      ListTile(
-                        leading: SvgPicture.asset('assets/settings.svg'),
-                        title: const Text('Settings'),
-                        onTap: () {},
-                      ),
                       const Spacer(),
                       ListTile(
                         leading: SvgPicture.asset('assets/logout.svg'),
@@ -180,7 +176,9 @@ class CommonScreen extends GetView<HomeController> {
                           'Logout',
                           style: TextStyle(color: Colors.red),
                         ),
-                        onTap: () {},
+                        onTap: () {
+                          Get.toNamed(SigninScreen.routeName);
+                        },
                       ),
                     ],
                   ),

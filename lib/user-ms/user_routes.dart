@@ -4,7 +4,8 @@ import 'package:pet/user-ms/profile/controller/profile_bindign.dart';
 import 'package:pet/user-ms/profile/view/profile_screen.dart';
 import 'package:pet/user-ms/signin/controller/signin_bindings.dart';
 import 'package:pet/user-ms/signin/view/signin_screen.dart';
-import 'package:pet/user-ms/signup/signup_screen.dart';
+import 'package:pet/user-ms/signup/controller/sigunp_binding.dart';
+import 'package:pet/user-ms/signup/view/signup_screen.dart';
 
 class UserRoutes {
   static final routes = [
@@ -17,6 +18,7 @@ class UserRoutes {
     GetPage(
       name: SignUpScreen.routeName,
       page: () => const SignUpScreen(),
+      binding: SignUpBinding(),
     ),
     GetPage(
         name: ProfileScreen.routeName,

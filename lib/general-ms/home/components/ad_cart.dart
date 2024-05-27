@@ -17,7 +17,7 @@ class AdCart extends StatelessWidget {
       child: Container(
         height: 150,
         width: double.infinity,
-        margin: const EdgeInsets.symmetric(vertical: 24),
+        margin: const EdgeInsets.symmetric(vertical: 12),
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(

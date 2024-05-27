@@ -62,9 +62,7 @@ class AddAdaptionController extends GetxController {
           imageFile); // Sıkıştırılmış resmi base64'e çevir
       imageBytes = base64Decode(base64Image!); // Base64'ten Uint8List'e çevir
       update(); // GetX kontrolünü güncelle
-    } else {
-      print('Resim seçilmedi.');
-    }
+    } else {}
   }
 
   Future<String> imageToBase64(File imageFile) async {
