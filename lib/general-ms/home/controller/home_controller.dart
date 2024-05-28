@@ -10,22 +10,8 @@ import 'package:pet/user-ms/profile/view/profile_screen.dart';
 
 class HomeController extends GetxController with StateMixin {
   final _repository = Get.find<HomeRepository>();
-  final currentIndex = 0.obs;
   RxList<Ad> adList = RxList<Ad>();
   final searchController = TextEditingController();
-
-  void changeIndex(int index) {
-    currentIndex.value = index;
-    if (currentIndex.value == 0) {
-      Get.toNamed(HomeScreen.routeName);
-    } else if (currentIndex.value == 1) {
-      Get.toNamed(MyAdaption.routeName);
-    } else if (currentIndex.value == 2) {
-      Get.toNamed(FavoriteScreen.routeName);
-    } else if (currentIndex.value == 3) {
-      Get.toNamed(ProfileScreen.routeName);
-    }
-  }
 
   @override
   void onInit() async {

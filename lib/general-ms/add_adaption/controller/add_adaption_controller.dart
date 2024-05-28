@@ -9,6 +9,8 @@ import 'package:pet/general-ms/add_adaption/controller/add_adaption_repository.d
 import 'package:pet/general-ms/add_adaption/model/add_ad_model.dart';
 import 'package:image/image.dart' as img;
 import 'package:pet/general-ms/home/controller/home_controller.dart';
+import 'package:pet/general-ms/my_adaption/controller/my_adaption_controller.dart';
+import 'package:pet/general-ms/my_adaption/view/my_adaption_screen.dart';
 
 class AddAdaptionController extends GetxController {
   final _repository = Get.find<AddAdaptionRepository>();
@@ -22,7 +24,7 @@ class AddAdaptionController extends GetxController {
 
   Uint8List? imageBytes;
 
-  publishAddAdaption() {
+  publishAddAdaption() async {
     _repository.addAdaption(
       AddAdModel(
           name: nameController.text,
@@ -33,7 +35,14 @@ class AddAdaptionController extends GetxController {
           about: aboutController.text,
           imagePath: base64Image ?? ""),
     );
-    Get.find<HomeController>().update();
+
+    try {
+      await Get.find<MyAdaptionController>().initController();
+      Get.find<MyAdaptionController>().update();
+      Get.offAllNamed(MyAdaption.routeName);
+    } catch (e) {
+      print(e);
+    }
   }
 
   Future<String> compressAndConvertToBase64(File imageFile) async {
@@ -41,10 +50,9 @@ class AddAdaptionController extends GetxController {
     img.Image? image = img.decodeImage(bytes);
 
     if (image != null) {
-      img.Image resized = img.copyResize(image,
-          width: 100, height: 100); // Örneğin genişliği 800 piksel yapıyoruz
-      Uint8List compressedBytes = Uint8List.fromList(img.encodeJpg(resized,
-          quality: 85)); // Kaliteyi %85 yaparak sıkıştırıyoruz
+      img.Image resized = img.copyResize(image, width: 100, height: 100);
+      Uint8List compressedBytes =
+          Uint8List.fromList(img.encodeJpg(resized, quality: 85));
       base64Image = base64Encode(compressedBytes);
       return base64Encode(compressedBytes);
     } else {
@@ -57,11 +65,10 @@ class AddAdaptionController extends GetxController {
     final pickedFile = await picker.pickImage(source: ImageSource.gallery);
 
     if (pickedFile != null) {
-      File imageFile = File(pickedFile.path); // XFile'ı File'a dönüştür
-      base64Image = await compressAndConvertToBase64(
-          imageFile); // Sıkıştırılmış resmi base64'e çevir
-      imageBytes = base64Decode(base64Image!); // Base64'ten Uint8List'e çevir
-      update(); // GetX kontrolünü güncelle
+      File imageFile = File(pickedFile.path);
+      base64Image = await compressAndConvertToBase64(imageFile);
+      imageBytes = base64Decode(base64Image!);
+      update();
     } else {}
   }
 

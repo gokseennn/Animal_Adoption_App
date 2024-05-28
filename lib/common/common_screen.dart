@@ -3,14 +3,43 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:pet/general-ms/favorites/favorites_screen.dart';
 import 'package:pet/general-ms/home/controller/home_controller.dart';
+import 'package:pet/general-ms/home/home_screen.dart';
+import 'package:pet/general-ms/my_adaption/view/my_adaption_screen.dart';
 import 'package:pet/user-ms/profile/view/profile_screen.dart';
+import 'package:pet/user-ms/settings/view/settings.dart';
 import 'package:pet/user-ms/signin/view/signin_screen.dart';
 
 class CommonScreen extends GetView<HomeController> {
-  const CommonScreen({super.key, required this.body});
+  const CommonScreen({
+    super.key,
+    required this.body,
+  });
   final Widget body;
   @override
   Widget build(BuildContext context) {
+    final currentIndex = 0.obs;
+    if (Get.currentRoute == HomeScreen.routeName) {
+      currentIndex.value = 0;
+    } else if (Get.currentRoute == MyAdaption.routeName) {
+      currentIndex.value = 1;
+    } else if (Get.currentRoute == FavoriteScreen.routeName) {
+      currentIndex.value = 2;
+    } else if (Get.currentRoute == ProfileScreen.routeName) {
+      currentIndex.value = 3;
+    }
+    void changeIndex(int index) {
+      currentIndex.value = index;
+      if (currentIndex.value == 0) {
+        Get.toNamed(HomeScreen.routeName);
+      } else if (currentIndex.value == 1) {
+        Get.toNamed(MyAdaption.routeName);
+      } else if (currentIndex.value == 2) {
+        Get.toNamed(FavoriteScreen.routeName);
+      } else if (currentIndex.value == 3) {
+        Get.toNamed(ProfileScreen.routeName);
+      }
+    }
+
     Get.lazyPut(() => HomeController());
     return Scaffold(
       appBar: AppBar(
@@ -35,15 +64,15 @@ class CommonScreen extends GetView<HomeController> {
         ),
         child: Obx(
           () => BottomNavigationBar(
-            currentIndex: controller.currentIndex.value,
-            onTap: controller.changeIndex,
+            currentIndex: currentIndex.value,
+            onTap: changeIndex,
             type: BottomNavigationBarType.fixed,
             fixedColor: Colors.white,
             items: [
               BottomNavigationBarItem(
                 icon: SvgPicture.asset(
                   'assets/navhome.svg',
-                  colorFilter: controller.currentIndex.value == 0
+                  colorFilter: currentIndex.value == 0
                       ? const ColorFilter.mode(
                           Color(0xFFBA68C8), BlendMode.srcIn)
                       : null,
@@ -53,7 +82,7 @@ class CommonScreen extends GetView<HomeController> {
               BottomNavigationBarItem(
                 icon: SvgPicture.asset(
                   'assets/navpet.svg',
-                  colorFilter: controller.currentIndex.value == 1
+                  colorFilter: currentIndex.value == 1
                       ? const ColorFilter.mode(
                           Color(0xFFBA68C8), BlendMode.srcIn)
                       : null,
@@ -63,7 +92,7 @@ class CommonScreen extends GetView<HomeController> {
               BottomNavigationBarItem(
                 icon: SvgPicture.asset(
                   'assets/navheart.svg',
-                  colorFilter: controller.currentIndex.value == 2
+                  colorFilter: currentIndex.value == 2
                       ? const ColorFilter.mode(
                           Color(0xFFBA68C8), BlendMode.srcIn)
                       : null,
@@ -73,7 +102,7 @@ class CommonScreen extends GetView<HomeController> {
               BottomNavigationBarItem(
                 icon: SvgPicture.asset(
                   'assets/navprofile.svg',
-                  colorFilter: controller.currentIndex.value == 3
+                  colorFilter: currentIndex.value == 3
                       ? const ColorFilter.mode(
                           Color(0xFFBA68C8), BlendMode.srcIn)
                       : null,
@@ -160,7 +189,9 @@ class CommonScreen extends GetView<HomeController> {
                       ListTile(
                         leading: SvgPicture.asset('assets/password.svg'),
                         title: const Text('Password'),
-                        onTap: () {},
+                        onTap: () {
+                          Get.toNamed(SettingScreen.routeName);
+                        },
                       ),
                       ListTile(
                         leading: SvgPicture.asset('assets/whislist.svg'),

@@ -37,21 +37,23 @@ class MyAdaption extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Expanded(
-                      child: GridView.builder(
-                          shrinkWrap: true,
-                          itemCount: controller.adList.length,
-                          gridDelegate:
-                              const SliverGridDelegateWithMaxCrossAxisExtent(
-                                  mainAxisExtent: 200,
-                                  mainAxisSpacing: 16,
-                                  crossAxisSpacing: 16,
-                                  maxCrossAxisExtent: 200),
-                          itemBuilder: (context, index) {
-                            return MyyAdaptionCard(
-                              ad: controller.adList[index],
-                            );
-                          }),
+                    Obx(
+                      () => Expanded(
+                        child: GridView.builder(
+                            shrinkWrap: true,
+                            itemCount: controller.adList.value.length,
+                            gridDelegate:
+                                const SliverGridDelegateWithMaxCrossAxisExtent(
+                                    mainAxisExtent: 200,
+                                    mainAxisSpacing: 16,
+                                    crossAxisSpacing: 16,
+                                    maxCrossAxisExtent: 200),
+                            itemBuilder: (context, index) {
+                              return MyyAdaptionCard(
+                                ad: controller.adList.value[index],
+                              );
+                            }),
+                      ),
                     )
                   ],
                 ),

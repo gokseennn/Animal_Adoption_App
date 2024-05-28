@@ -33,7 +33,11 @@ class AddAdaptionScreen extends StatelessWidget {
                         ),
                         child: controller.imageBytes != null
                             ? Image.memory(controller.imageBytes!)
-                            : const Text('Henüz bir resim seçilmedi.'),
+                            : const Center(
+                                child: Text(
+                                'Henüz bir resim seçilmedi.',
+                                textAlign: TextAlign.center,
+                              )),
                       ),
                     ),
                   ),

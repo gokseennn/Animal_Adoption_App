@@ -11,7 +11,6 @@ class AdDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var controller = Get.put(AdDetailController());
-    controller.update();
     return controller.obx(
       (_) => CommonScreen(
         body: Column(

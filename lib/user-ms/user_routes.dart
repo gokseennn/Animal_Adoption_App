@@ -2,6 +2,8 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:pet/general-ms/splash/splash_screen.dart';
 import 'package:pet/user-ms/profile/controller/profile_bindign.dart';
 import 'package:pet/user-ms/profile/view/profile_screen.dart';
+import 'package:pet/user-ms/settings/controller/settings_bindings.dart';
+import 'package:pet/user-ms/settings/view/settings.dart';
 import 'package:pet/user-ms/signin/controller/signin_bindings.dart';
 import 'package:pet/user-ms/signin/view/signin_screen.dart';
 import 'package:pet/user-ms/signup/controller/sigunp_binding.dart';
@@ -24,5 +26,9 @@ class UserRoutes {
         name: ProfileScreen.routeName,
         page: () => const ProfileScreen(),
         binding: ProfileBindin()),
+    GetPage(
+        name: SettingScreen.routeName,
+        page: () => const SettingScreen(),
+        binding: SettingsBinding())
   ];
 }

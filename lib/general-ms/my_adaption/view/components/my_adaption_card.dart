@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:pet/general-ms/add_adaption/model/ad_model.dart';
 import 'package:pet/general-ms/ad_detail/view/ad_detail_screen.dart';
+import 'package:pet/general-ms/add_adaption/model/ad_model.dart';
 
 class MyyAdaptionCard extends StatelessWidget {
   const MyyAdaptionCard({super.key, required this.ad});
@@ -12,7 +12,7 @@ class MyyAdaptionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Get.toNamed(AdDetail.routeName,
+      onTap: () => Get.offNamed(AdDetail.routeName,
           parameters: {'ad': jsonEncode(ad.toJson())}),
       child: Container(
         height: 220,

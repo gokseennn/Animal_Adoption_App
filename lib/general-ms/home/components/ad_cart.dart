@@ -12,7 +12,7 @@ class AdCart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Get.toNamed(AdDetail.routeName,
+      onTap: () => Get.offAllNamed(AdDetail.routeName,
           parameters: {'ad': jsonEncode(ad.toJson())}),
       child: Container(
         height: 150,
