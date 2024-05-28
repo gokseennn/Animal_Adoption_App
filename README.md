@@ -1,4 +1,4 @@
 # Animal Adoption App
 
 ## Getting Started
-An animal adoption application made with Flutter, created for API service test and architecture tests.
+An animal adoption application made with Flutter With MVC, created for API service test and architecture tests.
