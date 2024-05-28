@@ -2,4 +2,4 @@
 
 ## Getting Started
 An animal adoption application made with Flutter With MVC, created for API service test and architecture tests.
-![Uploading Simulator Screenshot - iPhone 15 Pro Max - 2024-05-28 at 22.47.46.png…]()
+![Signin](https://github.com/gokseennn/Animal_Adoption_App/assets/73942502/dccaeb75-48c0-4ea8-90bc-9b0e83c8c51a)
